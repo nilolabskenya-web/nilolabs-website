@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NILOLABS TECHNOLOGIES</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid #222;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        .logo span { color: #7c3aed; }
+        .hero {
+            max-width: 800px;
+            margin: 8rem auto 4rem;
+            padding: 0 5%;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #7c3aed20;
+            color: #a78bfa;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            border: 1px solid #7c3aed40;
+        }
+        .services {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: border-color 0.2s;
+        }
+        .card:hover { border-color: #7c3aed50; }
+        .card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+        .card p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+        .card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 4rem;
+        }
+        footer a { color: #a78bfa; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">NILOLABS<span>.</span></div>
+        <span class="badge">Nairobi, Kenya</span>
+    </nav>
+
+    <section class="hero">
+        <h1>Business Communication at <span>Scale</span></h1>
+        <p>
+            NILOLABS TECHNOLOGIES builds intelligent messaging solutions 
+            powered by the WhatsApp Business Platform. We help businesses 
+            connect with their customers through automated, scalable, 
+            and reliable communication systems.
+        </p>
+        <span class="badge">WhatsApp Business API</span>
+    </section>
+
+    <section class="services">
+        <div class="card">
+            <div class="icon">💬</div>
+            <h3>WhatsApp Automation</h3>
+            <p>Send and receive WhatsApp messages at scale using the official 
+            Meta WhatsApp Business API. Automated responses, broadcasts, 
+            and intelligent chatbots.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔗</div>
+            <h3>API Integration</h3>
+            <p>Custom integration of messaging APIs into existing business 
+            systems, CRMs, and customer support platforms for seamless 
+            communication workflows.</p>
+        </div>
+        <div class="card">
+            <div class="icon">📊</div>
+            <h3>Message Analytics</h3>
+            <p>Track delivery rates, response times, and customer engagement 
+            metrics to optimize your business messaging strategy.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 NILOLABS TECHNOLOGIES — Nairobi, Kenya</p>
+        <p style="margin-top: 0.5rem;">
+            Contact: hello@nilolabs.co.ke
+        </p>
+    </footer>
+</body>
+</html>
