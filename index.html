@@ -3,148 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NILOLABS TECHNOLOGIES</title>
+    <title>Nilolabs Technologies — Intelligent Messaging &amp; Automation</title>
+    <meta name="description" content="Nilolabs Technologies builds intelligent messaging and automation solutions for businesses across Africa. WhatsApp Business API, chatbots, and custom integrations — based in Nairobi, Kenya.">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --border: #1e1e2e;
+            --text: #e0e0e8;
+            --text-muted: #8888a0;
+            --accent: #7c5cfc;
+            --accent-glow: rgba(124, 92, 252, 0.25);
+            --green: #4ade80;
+            --green-glow: rgba(74, 222, 128, 0.2);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
+
+        /* ── Nav ── */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            height: 64px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            border-bottom: 1px solid #222;
+            justify-content: space-between;
         }
-        .logo {
-            font-size: 1.3rem;
+
+        .nav-logo {
             font-weight: 700;
-            color: #fff;
-            letter-spacing: 1px;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+            color: var(--text);
         }
-        .logo span { color: #7c3aed; }
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        /* ── Hero ── */
         .hero {
-            max-width: 800px;
-            margin: 8rem auto 4rem;
-            padding: 0 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green-glow);
+        }
+
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
-            color: #fff;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
         }
-        .hero h1 span {
-            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .hero p {
-            font-size: 1.2rem;
-            color: #a0a0a0;
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            margin-top: 1.5rem;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            position: relative;
+            z-index: 1;
         }
-        .badge {
-            display: inline-block;
-            background: #7c3aed20;
-            color: #a78bfa;
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            border: 1px solid #7c3aed40;
+
+        .hero-cta {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
         }
-        .services {
-            max-width: 900px;
-            margin: 4rem auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .card {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: border-color 0.2s;
-        }
-        .card:hover { border-color: #7c3aed50; }
-        .card h3 {
+
+        .btn-primary {
+            background: var(--accent);
             color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-        }
-        .card p {
-            color: #888;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
             font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: box-shadow 0.3s, transform 0.2s;
         }
-        .card .icon {
-            font-size: 1.5rem;
+        .btn-primary:hover {
+            box-shadow: 0 0 30px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: var(--surface);
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
             margin-bottom: 1rem;
         }
-        footer {
-            text-align: center;
-            padding: 3rem 5%;
-            border-top: 1px solid #222;
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 4rem;
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
         }
-        footer a { color: #a78bfa; text-decoration: none; }
+
+        /* ── Services Grid ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ── About ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-map {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .about-map .pin {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .about-map .city {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .about-map .country {
+            color: var(--text-muted);
+        }
+
+        /* ── Contact ── */
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .contact-card .email {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .contact-card .email:hover { text-decoration: underline; }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+        footer .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        footer .footer-links a:hover { color: var(--text); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">NILOLABS<span>.</span></div>
-        <span class="badge">Nairobi, Kenya</span>
-    </nav>
 
-    <section class="hero">
-        <h1>Business Communication at <span>Scale</span></h1>
-        <p>
-            NILOLABS TECHNOLOGIES builds intelligent messaging solutions 
-            powered by the WhatsApp Business Platform. We help businesses 
-            connect with their customers through automated, scalable, 
-            and reliable communication systems.
+<nav>
+    <div class="nav-logo">Nilolabs<span>.</span></div>
+    <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-badge">
+        <span class="dot"></span> Based in Nairobi, Kenya
+    </div>
+    <h1>
+        Intelligent Messaging<br>
+        <span class="highlight">for African Business</span>
+    </h1>
+    <p>
+        Nilolabs Technologies builds conversational AI, WhatsApp automation,
+        and custom integration solutions that help businesses connect with
+        their customers at scale.
+    </p>
+    <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+</section>
+
+<section id="services">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-subtitle">
+        End-to-end messaging and automation solutions — from strategy to deployment.
+    </p>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">💬</div>
+            <h3>WhatsApp Business API</h3>
+            <p>
+                Official Meta-approved WhatsApp Business API integration.
+                Send notifications, support chats, and transactional messages
+                at scale through the world's most popular messaging platform.
+            </p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🤖</div>
+            <h3>Chatbots &amp; Conversational AI</h3>
+            <p>
+                Intelligent chatbots that handle customer inquiries 24/7.
+                Natural language understanding, multi-turn conversations,
+                and seamless human handoff when needed.
+            </p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🔌</div>
+            <h3>Custom Integrations</h3>
+            <p>
+                Connect your existing systems — CRMs, ERPs, payment gateways —
+                to messaging platforms. We build the bridges so your team
+                works from one unified interface.
+            </p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">📊</div>
+            <h3>Analytics &amp; Optimization</h3>
+            <p>
+                Understand your messaging performance. Delivery rates,
+                response times, customer satisfaction — actionable insights
+                to continuously improve your communication strategy.
+            </p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🛠️</div>
+            <h3>Embedded Systems &amp; IoT</h3>
+            <p>
+                Hardware-meets-software solutions. From microcontroller
+                programming to sensor integration — we build the embedded
+                intelligence that powers smart devices.
+            </p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎓</div>
+            <h3>Consulting &amp; Training</h3>
+            <p>
+                Not sure where to start? We assess your needs, design the
+                architecture, and train your team to own the solution
+                long after we're gone.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">About Nilolabs</h2>
+    <p class="section-subtitle">
+        A Nairobi-based technology company building the communication
+        infrastructure for Africa's digital economy.
+    </p>
+    <div class="about-grid">
+        <div>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                Nilolabs Technologies specializes in messaging infrastructure,
+                conversational AI, and embedded systems. We help businesses —
+                from startups to enterprises — deploy intelligent communication
+                channels that drive engagement and revenue.
+            </p>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                Our flagship product, <strong>Msaidizi</strong>, is a WhatsApp-based
+                assistant platform designed for African businesses. It handles
+                customer support, order tracking, appointment scheduling, and
+                more — all through the messaging app your customers already use.
+            </p>
+            <p style="color: var(--text-muted);">
+                We believe technology should remove friction, not add it.
+                Every solution we build is designed to be simple, reliable,
+                and genuinely useful.
+            </p>
+        </div>
+        <div class="about-map">
+            <div class="pin">📍</div>
+            <div class="city">Nairobi</div>
+            <div class="country">Kenya, East Africa</div>
+            <p style="color: var(--text-muted); margin-top: 1rem; font-size: 0.9rem;">
+                Operating across the African continent with a focus on
+                the East African market.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-label">Let's Talk</div>
+    <h2 class="section-title" style="text-align: center;">Contact Us</h2>
+    <p class="section-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;">
+        Ready to automate your customer communication? Reach out.
+    </p>
+    <div class="contact-card">
+        <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Email us at</p>
+        <a href="mailto:hello@nilolabs.tech" class="email">hello@nilolabs.tech</a>
+        <p style="color: var(--text-muted); margin-top: 1.5rem; font-size: 0.85rem;">
+            Nairobi, Kenya<br>
+            We respond within 24 hours.
         </p>
-        <span class="badge">WhatsApp Business API</span>
-    </section>
+    </div>
+</section>
 
-    <section class="services">
-        <div class="card">
-            <div class="icon">💬</div>
-            <h3>WhatsApp Automation</h3>
-            <p>Send and receive WhatsApp messages at scale using the official 
-            Meta WhatsApp Business API. Automated responses, broadcasts, 
-            and intelligent chatbots.</p>
-        </div>
-        <div class="card">
-            <div class="icon">🔗</div>
-            <h3>API Integration</h3>
-            <p>Custom integration of messaging APIs into existing business 
-            systems, CRMs, and customer support platforms for seamless 
-            communication workflows.</p>
-        </div>
-        <div class="card">
-            <div class="icon">📊</div>
-            <h3>Message Analytics</h3>
-            <p>Track delivery rates, response times, and customer engagement 
-            metrics to optimize your business messaging strategy.</p>
-        </div>
-    </section>
+<footer>
+    <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:hello@nilolabs.tech">hello@nilolabs.tech</a>
+    </div>
+    <p>&copy; 2026 Nilolabs Technologies. All rights reserved.</p>
+</footer>
 
-    <footer>
-        <p>&copy; 2026 NILOLABS TECHNOLOGIES — Nairobi, Kenya</p>
-        <p style="margin-top: 0.5rem;">
-            Contact: hello@nilolabs.co.ke
-        </p>
-    </footer>
 </body>
 </html>
